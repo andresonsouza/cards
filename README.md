@@ -2,7 +2,7 @@
 
 **TODO: Add description**
 
-## Installation
+## Installation - http://gameofcards.surge.sh/Cards.html
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 by adding `cards` to your list of dependencies in `mix.exs`:
