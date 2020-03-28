@@ -40,6 +40,7 @@ defmodule Cards do
   iex> deck =  Cards.create_deck
   iex> Cards.contains?(deck, "Ace of Spades")
   true
+
   """
   def contains?(deck, card) do
     Enum.member?(deck, card)
