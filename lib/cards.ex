@@ -12,7 +12,7 @@ defmodule Cards do
     The `hand_size` argument indicates how many cards should be in the hand.
 
   ## Examples
-    
+
       iex> deck = Cards.create_deck
       iex> {hand, deck} = Cards.deal(deck, 1)
       iex> hand
@@ -32,6 +32,15 @@ defmodule Cards do
     Enum.shuffle(deck)
   end
 
+  @doc """
+  Determines whether a deck contains a given card
+
+  ## Examples
+
+  iex> deck =  Cards.create_deck
+  iex> Cards.contains?(deck, "Ace of Spades")
+  true
+  """
   def contains?(deck, card) do
     Enum.member?(deck, card)
   end
@@ -47,19 +56,18 @@ defmodule Cards do
 
   def load(filename) do
     case File.read(filename) do
-      {:ok, binary} -> :erlang.binary_to_term binary
+      {:ok, binary} -> :erlang.binary_to_term(binary)
       {:error, _reason} -> "That file does not exist"
     end
   end
 
   def create_hand(hand_size) do
-    deck = Cards.create_deck
+    deck = Cards.create_deck()
     deck = Cards.shuffle(deck)
     hand = Cards.deal(deck, hand_size)
-  
-    Cards.create_deck
-    |> Cards.shuffle
+
+    Cards.create_deck()
+    |> Cards.shuffle()
     |> Cards.deal(hand_size)
   end
-
 end
